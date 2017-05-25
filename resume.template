@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
 	<head>
-	
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
-	
+
 	<title>{{#resume.basics}}{{name}}{{/resume.basics}}</title>
 
 	<style>
@@ -15,10 +15,10 @@
 	</style>
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
-	
+
 	</head>
 	<body>
-	
+
 	<div id="resume">
 
 	{{#resume.basics}}
@@ -26,14 +26,14 @@
 		<header>
 			<h1>{{name}}</h1>
 			<div class="contact">
-				{{#if email}}
-				<span class="detail">
-					<a href="mailto:{{email}}">{{email}}</a>
-				</span>
-				{{/if}}
 				{{#if phone}}
 				<span class="detail">
 					{{phone}}
+				</span>
+				{{/if}}
+				{{#if email}}
+				<span class="detail">
+					<a href="mailto:{{email}}">{{email}}</a>
 				</span>
 				{{/if}}
 				{{#if website}}
@@ -41,36 +41,36 @@
 					<a href="{{website}}">{{website}}</a>
 				</span>
 				{{/if}}
-			</div>
-		</header>
-
+        <br>
+        {{#if profiles.length}}
+          {{#each profiles}}
+            <div class="profile">
+              {{#if network}}
+                <strong class="network">
+                  {{network}}
+                </strong>
+              {{/if}}
+              {{#if username}}
+                <span class="username">
+                  {{#if url}}
+                    <a href="{{url}}">{{username}}</a>
+                    {{else}}
+                    {{username}}
+                  {{/if}}
+                </span>
+              {{/if}}
+            </div>
+          {{/each}}
+        {{/if}}
+        <div class="strike"></div>
+      </div>
+    </header>
 
 		{{#if summary}}
 		<p>{{paragraphSplit summary}}</p>
 		{{/if}}
-
-		{{#if profiles.length}}
-			{{#each profiles}}
-			<div class="profile">
-				{{#if network}}
-				<strong class="network">
-					{{network}}
-				</strong>
-				{{/if}}
-				{{#if username}}
-				<span class="username">
-					{{#if url}}
-					<a href="{{url}}">{{username}}</a>
-					{{else}}
-					{{username}}
-					{{/if}}
-				</span>
-				{{/if}}
-			</div>
-			{{/each}}
-		{{/if}}
-
 	</section>
+  <div class="strike"></div>
 	{{/resume.basics}}
 
 	{{#if resume.skills.length}}
@@ -93,6 +93,7 @@
 		</div>
 		{{/each}}
 	</section>
+  <div class="strike"></div>
 	{{/if}}
 
 	{{#if resume.work.length}}
@@ -141,6 +142,7 @@
 		</section>
 		{{/each}}
 	</section>
+  <div class="strike"></div>
 	{{/if}}
 
 	{{#if resume.volunteer.length}}
@@ -189,8 +191,9 @@
 		</div>
 		{{/each}}
 	</section>
+  <div class="strike"></div>
 	{{/if}}
-	
+
 	{{#if resume.education.length}}
 	<section id="education">
 		<h2>Education</h2>
@@ -242,8 +245,9 @@
 		</div>
 		{{/each}}
 	</section>
+  <div class="strike"></div>
 	{{/if}}
-	
+
 	{{#if resume.awards.length}}
 	<section id="awards">
 		<h2>Awards</h2>
@@ -272,8 +276,9 @@
 		</div>
 		{{/each}}
 	</section>
+  <div class="strike"></div>
 	{{/if}}
-	
+
 	{{#if resume.publications.length}}
 	<section id="publications">
 		<h2>Publications</h2>
@@ -307,6 +312,7 @@
 		</div>
 		{{/each}}
 	</section>
+  <div class="strike"></div>
 	{{/if}}
 
 	{{#if resume.languages.length}}
@@ -327,6 +333,7 @@
 		</div>
 		{{/each}}
 	</section>
+  <div class="strike"></div>
 	{{/if}}
 
 	{{#if resume.interests.length}}
@@ -349,8 +356,9 @@
 		</div>
 		{{/each}}
 	</section>
+  <div class="strike"></div>
 	{{/if}}
-	
+
 	{{#if resume.references.length}}
 	<section id="references">
 		<h2>References</h2>
@@ -370,8 +378,8 @@
 		{{/each}}
 	</section>
 	{{/if}}
-	
+
 	</div>
-	
+
 	</body>
 </html>
